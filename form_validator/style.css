@@ -1,0 +1,178 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.form-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 450px;
+}
+
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px 35px 10px 12px;
+    font-size: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    border-color: #2563eb;
+}
+
+/* Biểu tượng trạng thái ✅/❌ nằm trong input */
+.status-icon {
+    position: absolute;
+    right: 12px;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+.error-msg {
+    color: #dc2626;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+    min-height: 16px; /* Giữ chỗ để tránh giật giao diện khi lỗi hiện lên */
+}
+
+/* Password Strength Meter */
+.strength-meter {
+    background-color: #e5e7eb;
+    height: 6px;
+    border-radius: 3px;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0;
+    transition: width 0.3s, background-color 0.3s;
+}
+
+.strength-text {
+    font-size: 12px;
+    font-weight: bold;
+    display: block;
+    margin-top: 4px;
+}
+
+/* Các trạng thái màu của Password */
+.strength-weak { background-color: #dc2626; color: #dc2626; }
+.strength-medium { background-color: #d97706; color: #d97706; }
+.strength-strong { background-color: #16a34a; color: #16a34a; }
+
+/* Nút bấm Submit (Đã sửa lỗi cú pháp selector) */
+#submitBtn {
+    width: 100%;
+    padding: 12px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Trạng thái khi nút Submit bị khóa (Đã sửa lỗi cú pháp selector) */
+#submitBtn:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+}
+
+/* Modal Popup */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.modal-content h3 {
+    margin-bottom: 15px;
+    color: #16a34a;
+}
+
+#modalData {
+    text-align: left;
+    background: #f3f4f6;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+#closeModal {
+    padding: 8px 20px;
+    background: #374151;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
