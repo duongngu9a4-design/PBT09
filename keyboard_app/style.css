@@ -1,0 +1,185 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: #f3f4f6;
+    color: #1f2937;
+    padding: 30px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 { font-size: 28px; margin-bottom: 8px; }
+header p { color: #6b7280; font-size: 14px; }
+
+kbd {
+    background: #e5e7eb;
+    border: 1px solid #9ca3af;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 12px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+
+#btnPaletteTrigger {
+    margin-top: 15px;
+    padding: 8px 16px;
+    background: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* YÊU CẦU: Focus ring visible rõ ràng khi tương tác bằng phím Tab */
+button:focus-visible, input:focus-visible, .thumb-item:focus-visible, li:focus-visible {
+    outline: 3px solid #ff5a00;
+    outline-offset: 2px;
+}
+
+/* Khối xem ảnh chính */
+.slideshow-container {
+    background: #000;
+    border-radius: 12px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+#mainImage {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.controls {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    gap: 15px;
+    background: rgba(0,0,0,0.6);
+    padding: 8px 15px;
+    border-radius: 30px;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 4px 10px;
+}
+
+/* Danh sách ảnh thu nhỏ */
+.thumbnails-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.thumb-item {
+    border: 3px solid transparent;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    background: none;
+    padding: 0;
+}
+
+.thumb-item.active {
+    border-color: #4f46e5;
+}
+
+.thumb-item img {
+    width: 100%;
+    height: 50px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Command Palette Overlay */
+.palette-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+.palette-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.palette-content {
+    background: white;
+    width: 90%;
+    max-width: 550px;
+    border-radius: 8px;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    max-height: 350px;
+}
+
+#paletteInput {
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+    outline: none;
+    border-radius: 8px 8px 0 0;
+}
+
+#commandList {
+    list-style: none;
+    overflow-y: auto;
+    flex: 1;
+}
+
+#commandList li {
+    padding: 12px 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+#commandList li.selected, #commandList li:hover {
+    background: #eedffd;
+    color: #4f46e5;
+}
+
+.palette-footer {
+    padding: 10px 15px;
+    background: #f9fafb;
+    border-top: 1px solid #e5e7eb;
+    font-size: 11px;
+    color: #9ca3af;
+    display: flex;
+    gap: 15px;
+    border-radius: 0 0 8px 8px;
+}
